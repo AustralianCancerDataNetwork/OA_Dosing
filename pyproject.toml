@@ -8,7 +8,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-omop-alchemy = {git = "git@github.com:AustralianCancerDataNetwork/OMOP_Alchemy.git"}
+omop-alchemy = {git = "https://github.com/AustralianCancerDataNetwork/OMOP_Alchemy.git"}
 
 
 [tool.poetry.group.dev.dependencies]
