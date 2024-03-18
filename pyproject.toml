@@ -10,7 +10,6 @@ readme = "README.md"
 python = "^3.11"
 omop-alchemy = {git = "https://github.com/AustralianCancerDataNetwork/OMOP_Alchemy.git"}
 
-
 [tool.poetry.group.dev.dependencies]
 ipykernel = "^6.29.2"
 
