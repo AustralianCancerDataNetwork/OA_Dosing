@@ -41,8 +41,8 @@ class Regimen_Reference(Base):
 
 class Regimen_Multiples(Base):
     __tablename__ = 'regimen_multiples'
-    regimen_reference_id: so.Mapped[int] = so.mapped_column(sa.ForeignKey('regimen_reference.regimen_reference_id'), primary_key=True, autoincrement=True)
-    equivalent_regimen_reference_id: so.Mapped[int] = so.mapped_column(sa.ForeignKey('regimen_reference.regimen_reference_id'),primary_key=True, autoincrement=True)
+    regimen_reference_id: so.Mapped[int] = so.mapped_column(sa.ForeignKey('regimen_reference.regimen_reference_id'), primary_key=True)
+    equivalent_regimen_reference_id: so.Mapped[int] = so.mapped_column(sa.ForeignKey('regimen_reference.regimen_reference_id'),primary_key=True)
 
 class Regimen_Context(Base):
     __tablename__ = 'regimen_context'
