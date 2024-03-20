@@ -34,9 +34,7 @@ class Regimen_Reference(Base):
     hemonc_id: so.Mapped[Optional[int]] = so.mapped_column(sa.ForeignKey('concept.concept_id'), nullable=True)
     # relationships
     variant_of: so.Mapped[Optional['Regimen_Reference']] = so.relationship(foreign_keys=[variant_of_id], remote_side=regimen_reference_id)
-    equivalent_to: so.Mapped[Optional['Regimen_Reference']] = so.relationship(foreign_keys=[equivalent_regimen_id], remote_side=regimen_reference_id)
     has_variants: so.Mapped[List['Regimen_Reference']] = so.relationship(back_populates="variant_of", lazy="selectin")
-    has_equivalents: so.Mapped[List['Regimen_Reference']] = so.relationship(back_populates="equivalent_to", lazy="selectin")
     has_context: so.Mapped['Regimen_Context'] = so.relationship(back_populates="context_of", lazy="selectin")
     has_parts: so.Mapped[List['Regimen_Part']] = so.relationship(back_populates="part_of_regimen", lazy="selectin")
     # concept relationships
