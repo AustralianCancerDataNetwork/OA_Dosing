@@ -29,7 +29,6 @@ class Regimen_Reference(Base):
     variant_descriptor: so.Mapped[Optional[str]] = so.mapped_column(sa.String(250), nullable=True)
     # fks
     variant_of_id: so.Mapped[Optional[int]] = so.mapped_column(sa.ForeignKey('regimen_reference.regimen_reference_id'), nullable=True)
-    equivalent_regimen_id: so.Mapped[Optional[int]] = so.mapped_column(sa.ForeignKey('regimen_reference.regimen_reference_id'), nullable=True)
     # concept fks
     hemonc_id: so.Mapped[Optional[int]] = so.mapped_column(sa.ForeignKey('concept.concept_id'), nullable=True)
     # relationships
@@ -39,6 +38,11 @@ class Regimen_Reference(Base):
     has_parts: so.Mapped[List['Regimen_Part']] = so.relationship(back_populates="part_of_regimen", lazy="selectin")
     # concept relationships
     hemonc_concept: so.Mapped[Optional['Concept']] = so.relationship(foreign_keys=[hemonc_id])
+
+class Regimen_Multiples(Base):
+    __tablename__ = 'regimen_multiples'
+    regimen_reference_id: so.Mapped[int] = so.mapped_column(sa.ForeignKey('regimen_reference.regimen_reference_id'), primary_key=True, autoincrement=True)
+    equivalent_regimen_reference_id: so.Mapped[int] = so.mapped_column(sa.ForeignKey('regimen_reference.regimen_reference_id'),primary_key=True, autoincrement=True)
 
 class Regimen_Context(Base):
     __tablename__ = 'regimen_context'
